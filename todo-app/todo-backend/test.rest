@@ -1,0 +1,16 @@
+POST http://localhost:3000/todos HTTP/1.1
+content-type: application/json
+
+{
+    "text": "sample",
+    "done": true
+}
+###
+
+PUT http://localhost:3000/todos/65a17e32ae0f330592ac85bf HTTP/1.1
+content-type: application/json
+
+{
+    "text": "sample this sir",
+    "done": false
+}

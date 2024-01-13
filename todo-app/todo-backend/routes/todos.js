@@ -8,6 +8,12 @@ router.get('/', async (_, res) => {
   res.send(todos);
 });
 
+/* GET todos listing. */
+router.get('todos/:id', async (req, res) => {
+  const todos = await Todo.find({id:req.params.id})
+  res.send(todos);
+});
+
 /* POST todo to listing. */
 router.post('/', async (req, res) => {
   const todo = await Todo.create({
@@ -35,12 +41,18 @@ singleRouter.delete('/', async (req, res) => {
 
 /* GET todo. */
 singleRouter.get('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+  res.send(req.todo);
 });
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+  const body = {
+    text: req.body.text,
+    done: req.body.done,
+    _id: req.todo._id
+  }
+  const todo = await Todo.findOneAndUpdate({_id : req.todo._id }, body, {new: true})
+  res.send(todo);
 });
 
 router.use('/:id', findByIdMiddleware, singleRouter)
