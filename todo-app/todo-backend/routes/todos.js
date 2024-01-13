@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
     done: false
   })
   let counter = await getAsync('counter')
+  if (!counter) counter = 0
   await setAsync('counter', parseInt(counter) + 1)
   res.send(todo);
 });

@@ -3,7 +3,8 @@ const { getAsync, setAsync } = require('../redis')
 const router = express.Router();
 
 router.get('/', async (_, res) => {
-  const counter = await getAsync('counter')
+  let counter = await getAsync('counter')
+  if (!counter) counter = 0
   res.send({
     "added todos":counter
   });
