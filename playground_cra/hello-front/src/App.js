@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>moi kaikki :DD</p>
       </header>
     </div>
   );
