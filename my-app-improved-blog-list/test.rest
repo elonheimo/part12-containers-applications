@@ -1,0 +1,17 @@
+### user creation
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "username":"hei",
+  "password":"he",
+  "name":"hei"
+}
+####
+POST http://localhost:3000/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username":"hei",
+  "password":"hei"
+}

@@ -1,3 +1,5 @@
 **/node_modules
 todo-app/todo-backend/mongo/data
 todo-app/todo-backend/redis_data/dump.rdb
+.env
+my-app-improved-blog-list/backend/mongo/data
